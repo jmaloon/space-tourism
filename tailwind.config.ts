@@ -7,5 +7,12 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   plugins: [],
+  theme: {
+    colors: {
+      navy: "#0B0D17",
+      blue: "#D0D6F9",
+      white: "#FFFFFF",
+    },
+  },
 };
 export default config;
