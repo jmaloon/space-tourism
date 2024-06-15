@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "Frontend Mentor challenge",
 };
 
+import NavItem from "@/components/NavItem";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -18,11 +20,13 @@ export default function RootLayout({
       className={`${barlow.variable} ${barlow_condensed.variable} ${bellefair.variable}`}
     >
       <body className="background-home">
-        <main>
-          <nav className="nav-text text-white">Navigation goes here</nav>
+        <nav className="m-4">
+          <ul role="menubar">
+            <NavItem index={0} label="Home" />
+          </ul>
+        </nav>
 
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   );
