@@ -23,6 +23,9 @@ export default function RootLayout({
         <nav className="m-4">
           <ul role="menubar">
             <NavItem index={0} label="Home" />
+            <NavItem index={1} label="Destination" />
+            <NavItem index={2} label="Crew" />
+            <NavItem index={3} label="Technology" />
           </ul>
         </nav>
 
