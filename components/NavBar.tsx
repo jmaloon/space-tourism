@@ -1,21 +1,53 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import NavItem from "./NavItem";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useMediaQuery } from "usehooks-ts";
 
 import logo from "@/public/shared/logo.svg";
 import iconClose from "@/public/shared/icon-close.svg";
 import iconHamburger from "@/public/shared/icon-hamburger.svg";
 
+const ROUTES: {
+  label: string;
+  rootSegment: string;
+  href: string;
+}[] = [
+  { label: "Home", rootSegment: "/", href: "/" },
+  {
+    label: "Destination",
+    rootSegment: "/destination",
+    href: "/destination/moon",
+  },
+  { label: "Crew", rootSegment: "/crew", href: "/" },
+  { label: "Technology", rootSegment: "/technology", href: "/" },
+];
+
 export default function NavBar() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 639.5px)", {
     defaultValue: false,
     initializeWithValue: false,
   });
+
+  const routes = useMemo(
+    () =>
+      ROUTES.map((route, index) => (
+        <NavItem
+          key={route.label}
+          index={index}
+          isActive={pathname === route.rootSegment}
+          label={route.label}
+          href={route.href}
+          onClick={() => setIsOpen(false)}
+        />
+      )),
+    [pathname]
+  );
 
   return (
     <nav className="flex justify-between p-4 pr-2 sm:items-center sm:p-0 sm:pl-4 sm:gap-6 lg:mt-10 lg:ml-14 lg:gap-10">
@@ -39,10 +71,7 @@ export default function NavBar() {
               </button>
             </div>
             <ul role="menubar" className="flex flex-col gap-4 mt-8">
-              <NavItem index={0} label="Home" />
-              <NavItem index={1} label="Destination" />
-              <NavItem index={2} label="Crew" />
-              <NavItem index={3} label="Technology" />
+              {routes}
             </ul>
           </div>
         </>
@@ -52,10 +81,7 @@ export default function NavBar() {
             role="menubar"
             className="flex-1 flex gap-4 px-4 justify-end bg-white/5 lg:flex-initial lg:gap-6 lg:px-8 lg:pl-20"
           >
-            <NavItem index={0} label="Home" />
-            <NavItem index={1} label="Destination" />
-            <NavItem index={2} label="Crew" />
-            <NavItem index={3} label="Technology" />
+            {routes}
           </ul>
         </div>
       )}

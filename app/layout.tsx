@@ -21,7 +21,6 @@ export default function RootLayout({
     >
       <body className="background-home">
         <NavBar />
-
         {children}
       </body>
     </html>
