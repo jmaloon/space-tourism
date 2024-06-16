@@ -12,7 +12,10 @@ import iconHamburger from "@/public/shared/icon-hamburger.svg";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-  const isMobile = useMediaQuery("(max-width: 639.5px)");
+  const isMobile = useMediaQuery("(max-width: 639.5px)", {
+    defaultValue: false,
+    initializeWithValue: false,
+  });
 
   return (
     <nav className="flex justify-between p-4 pr-2 sm:items-center sm:p-0 sm:pl-4 sm:gap-6 md:mt-10 md:ml-14 md:gap-10">
@@ -28,7 +31,7 @@ export default function NavBar() {
           <div
             className={`fixed h-full w-64 top-0 -right-64${
               isOpen ? " -translate-x-full" : ""
-            } pt-4 pl-8 transition-transform bg-navy/15 backdrop-blur-3xl `}
+            } pt-4 pl-8 transition-transform bg-navy/15 backdrop-blur-3xl z-50`}
           >
             <div className="text-right pr-2">
               <button className="p-4" onClick={() => setIsOpen(false)}>
