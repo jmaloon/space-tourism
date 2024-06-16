@@ -18,7 +18,7 @@ export default function NavBar() {
   });
 
   return (
-    <nav className="flex justify-between p-4 pr-2 sm:items-center sm:p-0 sm:pl-4 sm:gap-6 md:mt-10 md:ml-14 md:gap-10">
+    <nav className="flex justify-between p-4 pr-2 sm:items-center sm:p-0 sm:pl-4 sm:gap-6 lg:mt-10 lg:ml-14 lg:gap-10">
       <Link className="p-2 shrink-0" href="/">
         <Image alt="logo" className="w-10 h-10 sm:w-12 sm:h-12" src={logo} />
       </Link>
@@ -47,10 +47,10 @@ export default function NavBar() {
           </div>
         </>
       ) : (
-        <div className="flex-1 flex items-center md:before:flex-1 md:before:h-px md:before:bg-white/25 md:before:-mr-6">
+        <div className="flex-1 flex items-center lg:before:flex-1 lg:before:h-px lg:before:bg-white/25 lg:before:-mr-6">
           <ul
             role="menubar"
-            className="flex-1 flex gap-4 px-4 justify-end bg-white/5 md:flex-initial md:gap-6 md:px-8 md:pl-20"
+            className="flex-1 flex gap-4 px-4 justify-end bg-white/5 lg:flex-initial lg:gap-6 lg:px-8 lg:pl-20"
           >
             <NavItem index={0} label="Home" />
             <NavItem index={1} label="Destination" />
