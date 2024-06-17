@@ -13,17 +13,13 @@ import iconHamburger from "@/public/shared/icon-hamburger.svg";
 
 const ROUTES: {
   label: string;
-  rootSegment: string;
   href: string;
+  isExact: boolean;
 }[] = [
-  { label: "Home", rootSegment: "/", href: "/" },
-  {
-    label: "Destination",
-    rootSegment: "/destination",
-    href: "/destination/moon",
-  },
-  { label: "Crew", rootSegment: "/crew", href: "/" },
-  { label: "Technology", rootSegment: "/technology", href: "/" },
+  { label: "Home", href: "/", isExact: true },
+  { label: "Destination", href: "/destination", isExact: false },
+  { label: "Crew", href: "/crew", isExact: false },
+  { label: "Technology", href: "/technology", isExact: false },
 ];
 
 export default function NavBar() {
@@ -40,7 +36,11 @@ export default function NavBar() {
         <NavItem
           key={route.label}
           index={index}
-          isActive={pathname === route.rootSegment}
+          isActive={
+            route.isExact
+              ? pathname === route.href
+              : pathname.startsWith(route.href)
+          }
           label={route.label}
           href={route.href}
           onClick={() => setIsOpen(false)}

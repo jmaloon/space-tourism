@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export default function NavItem({
   index,
-  isActive,
+  isActive = false,
   href,
   label,
   onClick,
 }: {
   index: number;
-  isActive: boolean;
+  isActive?: boolean;
   href: string;
   label: string;
   onClick: () => void;
@@ -21,8 +21,10 @@ export default function NavItem({
   return (
     <li role="none" onClick={onClick}>
       <Link
-        className={`block relative py-2 sm:h-24 sm:flex sm:items-center sm:px-2 ${beforeMobileClasses} ${beforeTabletDesktopClasses} before:opacity-0 hover:before:opacity-50 ${
-          isActive ? "before:opacity-100 hover:before:opacity-100" : ""
+        className={`block relative py-2 sm:h-24 sm:flex sm:items-center sm:px-2 ${beforeMobileClasses} ${beforeTabletDesktopClasses}  ${
+          isActive
+            ? "before:opacity-100"
+            : "before:opacity-0 hover:before:opacity-50"
         }`}
         role="menuitem"
         href={href}
