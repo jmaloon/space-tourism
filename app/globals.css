@@ -85,6 +85,18 @@ body {
   letter-spacing: 0px;
 }
 
+@media screen and (max-width: 1023.5px) {
+  .heading-lg {
+    font-size: 80px;
+  }
+  .heading-xs {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+  .body-text {
+    font-size: 16px;
+  }
+}
 @media screen and (max-width: 639.5px) {
   .heading-xl {
     font-size: 80px;
