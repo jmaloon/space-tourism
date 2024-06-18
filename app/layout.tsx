@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Space Tourism",
-  description: "Frontend Mentor challenge",
+  description: "Frontend Mentor challenge by Josh Maloon",
 };
 
 import NavBar from "@/components/NavBar";
@@ -19,7 +19,7 @@ export default function RootLayout({
       lang="en"
       className={`${barlow.variable} ${barlow_condensed.variable} ${bellefair.variable}`}
     >
-      <body className="background-home">
+      <body>
         <NavBar />
         {children}
       </body>

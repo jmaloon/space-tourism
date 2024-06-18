@@ -22,20 +22,6 @@ body {
   }
 }
 
-.background-home {
-  background-image: url(../public/home/background-home-mobile.jpg);
-}
-@media screen and (min-width: 640px) {
-  .background-home {
-    background-image: url(../public/home/background-home-tablet.jpg);
-  }
-}
-@media screen and (min-width: 1024px) {
-  .background-home {
-    background-image: url(../public/home/background-home-desktop.jpg);
-  }
-}
-
 /* TYPOGRAPHY */
 .heading-xl {
   font-family: var(--font-bellefair);
