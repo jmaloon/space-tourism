@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image, { StaticImageData, getImageProps } from "next/image";
 import Tab from "@/components/Tab";
 import { DESTINATION_TABS, DestinationTab } from "@/lib/destination";
 import getDestinationData from "@/lib/getDestinationData";
@@ -9,6 +9,19 @@ export default function DestinationPage({ name }: { name: DestinationTab }) {
 
   const { images, description, distance, travel } = data;
 
+  const sourcePropsList = Object.entries(images).map(([type, src]) => {
+    const {
+      props: { srcSet },
+    } = getImageProps({
+      alt: `Image of ${name}`,
+      src,
+      width: 480,
+      height: 480,
+      sizes: "(max-width: 639.5px) 150px, (max-width: 1024px) 300px, 480px",
+    });
+    return { srcSet, type: `image/${type}` };
+  });
+
   return (
     <main className="m-6 sm:m-10 max-w-6xl lg:mx-auto">
       <p className="heading-xs text-white text-center sm:text-left">
@@ -16,14 +29,12 @@ export default function DestinationPage({ name }: { name: DestinationTab }) {
         <span className="uppercase">Pick Your Destination</span>
       </p>
       <div className="lg:flex lg:items-center">
-        <Image
-          alt={`Image of ${name}`}
-          className="size-36 mt-12 mb-14 mx-auto sm:size-72 lg:flex-1 lg:h-auto lg:mx-8 lg:my-12"
-          src={images.png}
-          width={450}
-          height={450}
-          sizes="(max-width: 639.5px) 150px, (max-width: 1024px) 300px, 450px"
-        />
+        <picture className="block size-36 mt-12 mb-14 mx-auto sm:size-72 lg:flex-1 lg:h-auto lg:mx-8 lg:my-12">
+          {sourcePropsList.map((props) => (
+            <source key={props.type} {...props} />
+          ))}
+          <img alt={`Image of ${name}`} className="w-full" />
+        </picture>
         <div className="flex flex-col items-center text-center gap-6 max-w-lg mx-auto lg:flex-1 lg:text-left lg:items-start lg:max-w-md lg:mx-12 lg:gap-10">
           <ul role="tablist" className="flex gap-4">
             {DESTINATION_TABS.map((tab) => (

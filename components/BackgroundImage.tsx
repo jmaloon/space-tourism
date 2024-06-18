@@ -10,7 +10,7 @@ export default function BackgroundImage({
 }: {
   sourceList: SourceList;
 }) {
-  const sourceListProps = sourceList.map(({ src, screen, ...rest }) => {
+  const sourcePropsList = sourceList.map(({ src, screen, ...rest }) => {
     const {
       props: { srcSet },
     } = getImageProps({
@@ -32,7 +32,7 @@ export default function BackgroundImage({
 
   return (
     <picture>
-      {sourceListProps.map((props) => (
+      {sourcePropsList.map((props) => (
         <source {...props} key={props.key} type="image/jpeg" />
       ))}
       <img
