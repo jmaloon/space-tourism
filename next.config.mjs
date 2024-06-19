@@ -7,6 +7,11 @@ const nextConfig = {
         destination: "/destination/moon",
         permanent: true,
       },
+      {
+        source: "/crew",
+        destination: "/crew/douglas-hurley",
+        permanent: true,
+      },
     ];
   },
 };

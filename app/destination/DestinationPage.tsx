@@ -1,4 +1,4 @@
-import Image, { StaticImageData, getImageProps } from "next/image";
+import { getImageProps } from "next/image";
 import Tab from "@/components/Tab";
 import { DESTINATION_TABS, DestinationTab } from "@/lib/destination";
 import getDestinationData from "@/lib/getDestinationData";
@@ -23,7 +23,7 @@ export default function DestinationPage({ name }: { name: DestinationTab }) {
   });
 
   return (
-    <main className="m-6 sm:m-10 max-w-6xl lg:mx-auto">
+    <main className="m-6 sm:m-10 max-w-7xl lg:px-20 lg:mx-auto">
       <p className="heading-xs text-white text-center sm:text-left">
         <span className="font-bold opacity-25 mr-6">01</span>
         <span className="uppercase">Pick Your Destination</span>
