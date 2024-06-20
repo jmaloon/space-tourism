@@ -43,7 +43,7 @@ export default function TechnologyPage({ name }: { name: TechnologyTab }) {
                 key={tab}
                 isActive={name === tab}
                 label={tab}
-                href={`/destination/${tab.toLowerCase()}`}
+                href={`/technology/${tab.toLowerCase().replaceAll(" ", "-")}`}
               />
             ))}
           </ul>
