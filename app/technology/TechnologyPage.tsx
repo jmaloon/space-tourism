@@ -35,8 +35,8 @@ export default function TechnologyPage({ name }: { name: TechnologyTab }) {
         <span className="font-bold opacity-25 mr-6">03</span>
         <span className="uppercase">Space Launch 101</span>
       </p>
-      <div className="flex flex-col-reverse gap-6 mt-20 lg:flex lg:items-center">
-        <div className="flex flex-col items-center text-center gap-6 max-w-lg mx-auto lg:flex-1 lg:text-left lg:items-start lg:max-w-md lg:mx-12 lg:gap-10">
+      <div className="flex flex-col-reverse gap-8 mt-20 lg:flex lg:items-center">
+        <div className="flex flex-col items-center text-center gap-10 max-w-lg mx-auto lg:flex-1 lg:text-left lg:items-start lg:max-w-md lg:mx-12 lg:gap-10">
           <ul role="tablist" className="flex gap-4">
             {TECHNOLOGY_TABS.map((tab, index) => (
               <LargePagination
@@ -51,7 +51,7 @@ export default function TechnologyPage({ name }: { name: TechnologyTab }) {
             <span className="heading-sm uppercase text-white opacity-50">
               The Terminology...
             </span>
-            <h1 className="heading-md uppercase text-white">{name}</h1>
+            <h1 className="heading-md uppercase text-white my-4">{name}</h1>
             <p className="body-text">{description}</p>
           </div>
         </div>
