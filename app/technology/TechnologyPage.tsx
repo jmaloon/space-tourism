@@ -35,9 +35,12 @@ export default function TechnologyPage({ name }: { name: TechnologyTab }) {
         <span className="font-bold opacity-25 mr-6">03</span>
         <span className="uppercase">Space Launch 101</span>
       </p>
-      <div className="flex flex-col-reverse gap-8 mt-20 lg:flex lg:items-center">
-        <div className="flex flex-col items-center text-center gap-10 max-w-lg mx-auto lg:flex-1 lg:text-left lg:items-start lg:max-w-md lg:mx-12 lg:gap-10">
-          <ul role="tablist" className="flex gap-4">
+      <div className="flex flex-col-reverse gap-8 mt-20 lg:flex-row lg:items-center">
+        <div className="flex flex-col self-center items-center text-center gap-10 max-w-lg lg:flex-row lg:text-left lg:items-start">
+          <ul
+            role="tablist"
+            className="flex gap-4 lg:flex lg:flex-col lg:gap-8"
+          >
             {TECHNOLOGY_TABS.map((tab, index) => (
               <LargePagination
                 key={tab}
@@ -55,14 +58,12 @@ export default function TechnologyPage({ name }: { name: TechnologyTab }) {
             <p className="body-text">{description}</p>
           </div>
         </div>
-        <div className="relative -mx-6">
-          <picture className="">
-            {sourcePropsList.map((props) => (
-              <source key={props.media} {...props} />
-            ))}
-            <img alt={`Image of ${name}`} className="w-full" />
-          </picture>
-        </div>
+        <picture className="-mx-6 sm:-mx-10 lg:m-0 lg:w-full">
+          {sourcePropsList.map((props) => (
+            <source key={props.media} {...props} />
+          ))}
+          <img alt={`Image of ${name}`} className="w-full" />
+        </picture>
       </div>
     </main>
   );
