@@ -12,6 +12,11 @@ const nextConfig = {
         destination: "/crew/douglas-hurley",
         permanent: true,
       },
+      {
+        source: "/technology",
+        destination: "/technology/launch-vehicle",
+        permanent: true,
+      },
     ];
   },
 };

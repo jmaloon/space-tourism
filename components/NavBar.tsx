@@ -52,7 +52,7 @@ export default function NavBar() {
   return (
     <nav className="flex justify-between p-4 pr-2 sm:items-center sm:p-0 sm:pl-4 sm:gap-6 lg:mt-10 lg:ml-14 lg:gap-10">
       <Link className="p-2 shrink-0" href="/">
-        <Image alt="logo" className="size-10 sm:size-12" src={logo} />
+        <Image alt="logo" className="size-10 sm:size-12" src={logo} priority />
       </Link>
       {isMobile ? (
         <>
