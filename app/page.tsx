@@ -1,3 +1,4 @@
+import Link from "next/link";
 import BackgroundImage, { SourceList } from "@/components/BackgroundImage";
 
 import backgroundHomeMobile from "@/public/home/background-home-mobile.jpg";
@@ -26,11 +27,14 @@ export default function Home() {
               this world experience!
             </p>
           </div>
-          <div className="relative before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-white before:rounded-full before:opacity-25 before:transition-transform hover:before:scale-150">
-            <button className="h-36 w-36 bg-white rounded-full sm:h-64 sm:w-64">
+          <Link
+            className="relative before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-white before:rounded-full before:opacity-25 before:transition-transform hover:before:scale-150"
+            href="/destination"
+          >
+            <div className="block grid place-items-center h-36 w-36 bg-white rounded-full sm:h-64 sm:w-64">
               <span className="heading-sm uppercase text-navy">Explore</span>
-            </button>
-          </div>
+            </div>
+          </Link>
         </div>
       </main>
       <BackgroundImage sourceList={BACKGROUND_SOURCES} />
