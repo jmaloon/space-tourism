@@ -24,7 +24,7 @@ export default function CrewPage({ name }: { name: CrewTab }) {
   });
 
   return (
-    <div className="flex flex-col gap-16 h-full p-6 sm:p-12 max-w-7xl lg:px-20 lg:mx-auto">
+    <div className="min-h-full flex flex-col gap-16 p-6 sm:p-10 max-w-7xl lg:px-20 lg:mx-auto">
       <p className="heading-xs text-white text-center sm:text-left">
         <span className="font-bold opacity-25 mr-6">02</span>
         <span className="uppercase">Meet Your Crew</span>
@@ -53,7 +53,7 @@ export default function CrewPage({ name }: { name: CrewTab }) {
             ))}
           </ul>
         </div>
-        <picture className="block mx-auto w-72 sm:w-full sm:max-w-lg sm:translate-y-10  lg:translate-y-0">
+        <picture className="block mx-auto w-72 sm:w-full sm:max-w-lg sm:translate-y-10 lg:translate-y-0">
           {sourcePropsList.map((props) => (
             <source key={props.type} {...props} />
           ))}
