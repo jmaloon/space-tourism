@@ -13,7 +13,7 @@ const BACKGROUND_SOURCES: SourceList = [
 export default function Home() {
   return (
     <>
-      <main className="flex justify-center p-6 sm:p-32">
+      <div className="min-h-full items-center flex justify-center p-6 sm:p-32">
         <div className="max-w-6xl flex-1 flex flex-col gap-24 items-center lg:flex-row lg:justify-between">
           <div className="text-center max-w-xl lg:text-left">
             <span className="heading-xs text-blue uppercase">
@@ -36,7 +36,7 @@ export default function Home() {
             </div>
           </Link>
         </div>
-      </main>
+      </div>
       <BackgroundImage sourceList={BACKGROUND_SOURCES} />
     </>
   );

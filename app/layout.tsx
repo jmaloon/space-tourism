@@ -21,7 +21,9 @@ export default function RootLayout({
     >
       <body>
         <NavBar />
-        {children}
+        <main className="fixed inset-0 top-[88px] sm:top-24 lg:top-[136px] bottom-0 overflow-auto">
+          {children}
+        </main>
       </body>
     </html>
   );

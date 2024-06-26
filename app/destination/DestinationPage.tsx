@@ -15,25 +15,32 @@ export default function DestinationPage({ name }: { name: DestinationTab }) {
     } = getImageProps({
       alt: `Image of ${name}`,
       src,
-      width: 480,
-      height: 480,
-      sizes: "(max-width: 639.5px) 150px, (max-width: 1024px) 300px, 480px",
+      width: 512,
+      height: 512,
+      sizes: "(max-width: 639.5px) 150px, (max-width: 1024px) 300px, 512px",
+      priority: true,
+      quality: 100,
     });
     return { srcSet, type: `image/${type}` };
   });
 
   return (
-    <main className="m-6 sm:m-10 max-w-7xl lg:px-20 lg:mx-auto">
+    <div className="min-h-full flex flex-col p-6 sm:p-10 max-w-7xl lg:px-20 lg:mx-auto">
       <p className="heading-xs text-white text-center sm:text-left">
         <span className="font-bold opacity-25 mr-6">01</span>
         <span className="uppercase">Pick Your Destination</span>
       </p>
-      <div className="lg:flex lg:items-center">
+      <div className="grow flex flex-col justify-center lg:flex-row lg:items-center">
         <picture className="block size-36 mt-12 mb-14 mx-auto sm:size-72 lg:flex-1 lg:h-auto lg:mx-8 lg:my-12">
           {sourcePropsList.map((props) => (
             <source key={props.type} {...props} />
           ))}
-          <img alt={`Image of ${name}`} className="w-full" />
+          <img
+            alt={`Image of ${name}`}
+            className="w-full"
+            width="512"
+            height="512"
+          />
         </picture>
         <div className="flex flex-col items-center text-center gap-6 max-w-lg mx-auto lg:flex-1 lg:text-left lg:items-start lg:max-w-md lg:mx-12 lg:gap-10">
           <ul role="tablist" className="flex gap-4">
@@ -68,6 +75,6 @@ export default function DestinationPage({ name }: { name: DestinationTab }) {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
